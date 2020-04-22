@@ -45,7 +45,7 @@ void draw() {
   deg = deg - floor(deg/360.0f)*360.0f;
   deg_rot -= deg_rot*0.01f;
   println(deg_rot, deg);
-  
+
   for(i = 0; i < 8; ++i) {
     CubeRot[i] = rot_deg(Cube[i], deg);
   };
@@ -80,7 +80,7 @@ void mouseDragged() {
 
 void draw_cube(Coord[] r) {
   Coord[] r_hw = math2hwCoord_cube(r);
-  
+
   //fill(200);
   beginShape();
   vertex(r_hw[0].x, r_hw[0].y, r_hw[0].z);
@@ -125,17 +125,17 @@ void center_cube(Coord[] r) {
   int xCenter = 0;
   int yCenter = 0;
   int zCenter = 0;
-  
+
   for(i = 0; i < 8 ; ++i) {
     xCenter += r[i].x;
     yCenter += r[i].y;
     zCenter += r[i].z;
   }
-  
+
   xCenter = xCenter/8;
   yCenter = yCenter/8;
   zCenter = zCenter/8;
- 
+
   for(i = 0; i < 8; ++i) {
     r[i].x = r[i].x - xCenter;
     r[i].y = r[i].y - yCenter;
@@ -145,11 +145,11 @@ void center_cube(Coord[] r) {
 
 public static Coord math2hwCoord(Coord p) {
   Coord p_hw = new Coord();
-  
+
   p_hw.x = p.x;
   p_hw.y = -p.y;
   p_hw.z = p.z;
-  
+
   return p_hw;
 }
 
